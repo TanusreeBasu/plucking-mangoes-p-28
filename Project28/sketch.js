@@ -41,7 +41,7 @@ tree = new Tree (620,500,350,400 );
 
 
 //stone = new Stone(35, 600, 30);
-stone = new Stone(130,610,30)
+stone = new Stone(90,610,30)
 
 // boy = createSprite(80, 620, 40,50);
 // boy.addImage(boyimage);
@@ -63,7 +63,7 @@ stone = new Stone(130,610,30)
   man9 = new Mango(630,390 , 40);
   man10 = new Mango(600, 380, 40);
   
- launcher = new Launcher(stone.body,{x:130,y:610});
+ launcher = new Launcher(stone.body,{x:90,y:610});
  Engine.update(engine);
 }
 
@@ -89,10 +89,10 @@ function draw() {
   man8.display();
   man9.display();
   man10.display();
-
+  launcher.display();
  
 //  line(bodyA.x,bodyA.y,pointB.x,pointB.y);
- launcher.display();
+
 
   //detectollision(stone,man1);
 //  detectollision(stone,man2);
@@ -120,8 +120,9 @@ function mouseReleased()
 {
   launcher.fly();
 }
-
-if(keyDown("space")){
-  Matter.Body.setPosition(stone.body,{x:130,y:610});
+function keyPressed(){
+if(keyCode ===32){
+  Matter.Body.setPosition(stone.body,{x:stone.body.position.x,y:stone.body.position.y});
   launcher.attach(stone.body);
+}
 }
